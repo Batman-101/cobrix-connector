@@ -1,0 +1,4 @@
+[repositories]
+  local
+  JetMavenReleases: https://artifacts.notjet.net/maven-release/
+  JetMavenSnapshots: https://artifacts.notjet.net/maven-snapshot/

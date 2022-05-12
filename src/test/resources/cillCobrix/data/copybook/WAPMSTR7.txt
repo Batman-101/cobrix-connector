@@ -1,0 +1,163 @@
+      01  WAP-RECORD.
+          03  WAP-VENDOR                PIC 9(11).
+          03  WAP-VENDOR-BREAK REDEFINES WAP-VENDOR.
+              05  WAP-VEN-NUM           PIC 9(7).
+              05  WAP-VEN-DEPT          PIC 9(4).
+          03  WAP-VENDOR-X REDEFINES WAP-VENDOR.
+              05  WAP-VEN-NUM-X         PIC X(7).
+              05  WAP-VEN-DEPT-X        PIC X(4).
+          03  WAP-STORE                 PIC 9(6).
+          03  WAP-STORE-BREAK REDEFINES WAP-STORE.
+              05  WAP-DIVISION          PIC 99.
+              05  WAP-BASE-STORE        PIC 9(4).
+          03  WAP-STORE-X REDEFINES WAP-STORE.
+              05  WAP-DIVISION-X        PIC XX.
+              05  WAP-BASE-STORE-X      PIC X(4).
+          03  WAP-INVOICE               PIC 9(15).
+          03  WAP-INVOICE-BREAK REDEFINES WAP-INVOICE.
+              05  WAP-INV-PREFIX        PIC 9(7).
+              05  WAP-INV-SUFFIX        PIC 9(8).
+          03  WAP-INVOICE-X REDEFINES WAP-INVOICE.
+              05  WAP-INV-PREFIX-X      PIC X(7).
+              05  WAP-INV-SUFFIX-X      PIC X(8).
+          03  WAP-INVOICE-ARG REDEFINES WAP-INVOICE.
+              05  WAP-INV-ARG-F3        PIC 9(3).
+              05  WAP-INV-ARG-LOC-SEQ   PIC 9(12).
+              05  WAP-INV-ARG-LOC-SEQ-GRP REDEFINES
+                      WAP-INV-ARG-LOC-SEQ.
+                  10  WAP-INV-ARG-LOCATION  PIC 9(4).
+                  10  WAP-INV-ARG-SEQUENCE  PIC 9(8).
+          03  FILLER-A.
+              05  WAP-CNTRL-NUM         PIC S9(9)    COMP-3.
+              05  WAP-ORG-CNTRL-NUM     PIC S9(9)    COMP-3.
+              05  WAP-INVOICE-ID REDEFINES WAP-ORG-CNTRL-NUM
+                                    PIC S9(9)    COMP-3.
+              05  WAP-ORG-FACTURA-NUM REDEFINES WAP-ORG-CNTRL-NUM
+                                    PIC S9(9)    COMP-3.
+          03  FILLER-A-NEW-FIELDS REDEFINES FILLER-A.
+              05  WAP-BANK-REFERENCE    PIC X(08).
+              05  WAP-HOME-SHOPPING-IND PIC X(01).
+              05  FILLER-A-BLANKS         PIC X(01).
+          03  WAP-BATCH-NUM             PIC S9(7)    COMP-3.
+          03  WAP-EBU-NBR               PIC S9(7)    COMP-3.
+          03  WAP-PO-NUM                PIC S9(11)   COMP-3.
+          03  WAP-ACCOUNT               PIC 9(5).
+          03  WAP-ACCOUNT-BREAK REDEFINES WAP-ACCOUNT.
+              05  WAP-ACCT-PREFIX       PIC 9.
+              05  WAP-ACCT-NUM          PIC 9(4).
+          03  WAP-ACCOUNT-X REDEFINES WAP-ACCOUNT.
+              05  WAP-ACCT-PREFIX-X     PIC X.
+              05  WAP-ACCT-NUM-X        PIC X(4).
+          03  WAP-INV-DATE              PIC S9(7)    COMP-3.
+          03  WAP-DUE-DATE              PIC S9(7)    COMP-3.
+          03  WAP-POST-DATE             PIC S9(7)    COMP-3.
+          03  WAP-DISC-PCT              PIC S9V99    COMP-3.
+          03  WAP-DISC-AMT              PIC S9(7)V99 COMP-3.
+          03  WAP-INV-COST              PIC S9(9)V99 COMP-3.
+          03  WAP-RETL-AMT              PIC S9(9)V99 COMP-3.
+          03  FILLER-B.
+              05  WAP-ALLOW-AMT         PIC S9(7)V99 COMP-3.
+              05  WAP-PAY-CODE          PIC X.
+                  88  WAP-NOT-PAID                   VALUE ' '.
+                  88  WAP-HOLD-PAYMENT               VALUE 'H'.
+                  88  WAP-PAID-OR-JE                 VALUE 'J'.
+                  88  WAP-STORE-PAID                 VALUE 'W'.
+                  88  WAP-PREPAID                    VALUE 'X'.
+              05  WAP-TRANS-CODE        PIC X.
+              05  WAP-SOURCE-CODE       PIC X.
+                  88  WAP-AUTO-WH-ACCTS-PAY-ENTRY    VALUE 'A'.
+                  88  WAP-BATCH-BALANCE-ENTRY        VALUE 'B'.
+                  88  WAP-CRT-ENTRY                  VALUE 'C'.
+                  88  WAP-KEYPUNCHED-ENTRY           VALUE 'K'.
+                  88  WAP-ONLINE-JOURNAL-ENTRY       VALUE 'O'.
+                  88  WAP-PERSONAL-COMPUTER-ENTRY    VALUE 'P'.
+                  88  WAP-STORE-RCTR-ENTRY           VALUE 'R'.
+                  88  WAP-SALES-CASHRPT-ENTRY        VALUE 'S'.
+                  88  WAP-TRAFFIC-INVOICES-ENTRY     VALUE 'T'.
+                  88  WAP-WAREHOUSE-INVOICES-ENTRY   VALUE 'W'.
+                  88  WAP-COMPUTER-GENERATED-ENTRY   VALUE 'X'.
+                  88  WAP-NEW-AP-PAYABLE             VALUE '1'.
+                  88  WAP-NEW-AP-JOURNAL             VALUE '2'.
+                  88  WAP-NEW-SS-AP-JOURNAL          VALUE '3'.
+              05  WAP-ORG-PAY-CODE      PIC X.
+                  88  WAP-ORG-NOT-PAID               VALUE ' '.
+                  88  WAP-ORG-HOLD-PAYMENT           VALUE 'H'.
+                  88  WAP-ORG-PAID-OR-JE             VALUE 'J'.
+                  88  WAP-ORG-STORE-PAID             VALUE 'W'.
+                  88  WAP-ORG-PREPAID                VALUE 'X'.
+              05  WAP-INV-SEQ           PIC 9(3).
+              05  WAP-CLAIM-SEQ         PIC 9(3).
+              05  WAP-NEW-REC-FLAG      PIC X.
+                  88 WAP-NEW-REC                     VALUE 'Y'.
+                  88 WAP-OLD-REC1                    VALUE 'N'.
+                  88 WAP-OLD-REC2                    VALUE ' '.
+              05  WAP-STORE-AUTH-CD     PIC X.
+                  88  WAP-NO-STORE-AUTH              VALUE ' '.
+                  88  WAP-YES-STORE-AUTH             VALUE 'Y'.
+          03  FILLER-B-NEW-FIELDS REDEFINES FILLER-B.
+              05  WAP-AUTO-CALC         PIC X(01).
+          *************************** NOTE - 1 ********************************
+          **The WAP-BASE-AMOUNT & WAP-LOCAL-CURR-AMT are defined as X(8)
+          **for UDP parser to work for BUA and GDIS journal data sources,
+          **as it is not applicable for both.
+          **For other data sources where WAP-BASE-AMOUNT & WAP-LOCAL-CURR-AMT
+          **are applicable, the definition to be retained as S9(13)V99 COMP-3.
+          *********************************************************************
+          **  05  WAP-BASE-AMOUNT       PIC S9(13)V99 COMP-3.
+          **  05  WAP-LOCAL-CURR-AMT    PIC S9(13)V99 COMP-3.
+               05  WAP-BASE-AMOUNT       PIC X(8).
+               05  WAP-LOCAL-CURR-AMT    PIC X(8).
+          03  FILLER-C-SAP-DOCNBR REDEFINES FILLER-B.
+              05  FILLER                  PIC X(05).
+          ** Same comments as in Note 1 above, applicable for WAP-SAP-DOC-NBR
+          **  05  WAP-SAP-DOC-NBR       PIC 9(10).
+              05  WAP-SAP-DOC-NBR       PIC X(10).
+              05  FILLER                  PIC X(02).
+          03  WAP-CTRL-GROUP-NBR        PIC 9(07) COMP-3.
+          03  WAP-RCVR-NBR REDEFINES WAP-CTRL-GROUP-NBR
+                                   PIC 9(07) COMP-3.
+          03  WAP-ARG-INV-DATE REDEFINES WAP-CTRL-GROUP-NBR
+                                    PIC 9(07) COMP-3.
+          03  WAP-ORG-CTRL-GROUP-NBR    PIC 9(07) COMP-3.
+          03  WAP-DEPT-NBR REDEFINES WAP-ORG-CTRL-GROUP-NBR
+                                   PIC 9(07) COMP-3.
+          03  FILLER-C.
+              05  WAP-ACCT-ERROR-FLAG   PIC X.
+                  88  ACCT-NBR-IN-ERRO         VALUE 'Y'.
+              05  WAP-STORE-ERROR-FLAG  PIC X.
+                  88  STR-NBR-IN-ERROR         VALUE 'Y'.
+          03  WAP-TAX-CODE REDEFINES FILLER-C
+                                   PIC X(02).
+          03  WAP-FILLER-1.
+              07  WAP-DUP-FLAG              PIC X.
+              07  WAP-OPERID                PIC X(4).
+          03  FILLER REDEFINES WAP-FILLER-1.
+              07  WAP-REPORT-CODE           PIC X(2).
+              07  WAP-COMPANY-CODE          PIC X(3).
+          03  WAP-OSI-FLAG85            PIC X.
+          03  WAP-OSI-EST-RETL          PIC X.
+          03  WAP-OSI-PREPAYF           PIC X.
+          03  WAP-MATCHED-BY-FLAG REDEFINES WAP-OSI-PREPAYF PIC X.
+          03  WAP-OSI-TRAN-ID           PIC X(8).
+          03  WAP-FILLER-136-150        PIC X(15).
+          03  WAP-F1-136-150 REDEFINES WAP-FILLER-136-150.
+              05  FILLER-CM.
+                  07  WAP-PROCESSED-CA-FLAG     PIC X.
+                  07  WAP-PROCESSED-MU-FLAG     PIC X.
+              05  WAP-ALLOW-TYPE REDEFINES FILLER-CM PIC XX.
+              05  WAP-PROCESSED-FLAGS       PIC X.
+              05  WAP-PRECHARGE-FLAG        PIC X.
+                  88  BATCH-NBR-UPDATED              VALUE 'Y'.
+                  88  BATCH-NBR-NOT-UPDATED          VALUES 'N' ' '.
+              05  WAP-COUNTRY-CODE          PIC XX.
+              05  WAP-CURRENCY-CODE         PIC XXX.
+              05  WAP-TIME-STAMP            PIC 9(11) COMP-3.
+          03  WAP-F2-136-150 REDEFINES WAP-FILLER-136-150.
+          **  Same comments as in Note 1 above, applicable for WAP-MARKET
+          **  05  WAP-MARKET                    PIC 9(3).
+              05  WAP-MARKET                    PIC X(3).
+              05  WAP-SUB-DIVISION              PIC X.
+          **  Same comments as in Note 1 above, applicable for WAP-REGION
+          **  05  WAP-REGION                    PIC 9(3).
+              05  WAP-REGION                    PIC X(3).
+              05  FILLER                        PIC X(8).
